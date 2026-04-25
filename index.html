@@ -2,26 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Absensi Masjid Nurul Firdaus</title>
   <style>
+    /* 1. Paksa html dan body untuk mengambil seluruh tinggi yang tersedia */
     html, body {
       margin: 0;
       padding: 0;
+      width: 100%;
       height: 100%;
+      /* Menggunakan dynamic viewport height untuk mobile */
+      height: 100dvh; 
       overflow: hidden;
-      font-family: sans-serif;
+      background-color: white;
     }
+
     .iframe-container {
       position: relative;
       width: 100%;
-      height: 100vh;
+      height: 100%;
+      /* Memastikan kontainer mengisi area aman di iPhone */
+      padding-bottom: env(safe-area-inset-bottom);
+      box-sizing: border-box;
     }
+
     iframe {
       width: 100%;
       height: 100%;
       border: none;
+      display: block;
     }
+
     .loader {
       position: absolute;
       top: 50%;
@@ -38,8 +49,9 @@
     <div class="loader" id="loader">Loading app...</div>
     <iframe 
       src="https://script.google.com/macros/s/AKfycbx7_Qc6qtC1j7La59F-GsG7aHhdqCRFiCqSoS2AG2GMpV7z_Enwk0gPYgCi9on9Dkm2cA/exec" 
-      title="Absensi Masjid Nurul Firdaus"
+      title="Masjid Nurul Firdaus"
       onload="document.getElementById('loader').style.display='none';"
+      allow="geolocation; microphone; camera"
       allowfullscreen>
     </iframe>
   </div>
